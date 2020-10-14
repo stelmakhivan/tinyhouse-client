@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Layout } from 'antd'
+import { Affix, Layout } from 'antd'
 import * as serviceWorker from './serviceWorker'
 import { Viewer } from './lib/types'
 import './styles/index.css'
@@ -16,6 +16,7 @@ import {
   NotFound,
   User,
   Login,
+  AppHeader,
 } from './sections'
 
 const client = new ApolloClient({
@@ -32,10 +33,12 @@ const initialViewer: Viewer = {
 
 const App = () => {
   const [viewer, setViewer] = useState<Viewer>(initialViewer)
-  console.log('viewer', viewer)
   return (
     <Router>
       <Layout id="app">
+        <Affix offsetTop={0} className="app__affix-header">
+          <AppHeader viewer={viewer} setViewer={setViewer} />
+        </Affix>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/host" component={Host} />
