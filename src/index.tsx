@@ -4,10 +4,9 @@ import ApolloClient from 'apollo-boost'
 import { ApolloProvider, useMutation } from 'react-apollo'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Affix, Layout, Spin } from 'antd'
-import { AppHeaderSkeleton } from './lib/components/AppHeaderSkeleton'
-import { ErrorBanner } from './lib/components/ErrorBanner'
+import { AppHeaderSkeleton, ErrorBanner } from './lib/components'
 import * as serviceWorker from './serviceWorker'
-import { LOG_IN } from './lib/graphql/mutations/LogIn'
+import { LOG_IN } from './lib/graphql/mutations'
 import {
   LogIn as LogInData,
   LogInVariables,
